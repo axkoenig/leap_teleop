@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- DESCRIPTION: launch file to upload Leap Motion parameters to ROS parameter server. -->
+
+    <!-- load parameters to parameter server -->
+    <group ns="leap">
+        <rosparam file="$(find leap_kuka)/config/leap_params.yaml"/>
+    </group>
+    
+</launch>

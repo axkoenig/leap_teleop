@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- DESCRIPTION: This file launches camera node, crops a square segment from depth data, resizes to 300*300 pixels for processing in neural network -->
+
+    <!-- load openni2 launch file for camera images -->
+    <include file="$(find openni2_launch)/launch/openni2.launch"/>
+
+    <!-- APPROACH: 
+        - orgininal depth image is 640 * 480 
+        - decimate width with factor 2 (2 width pixels become 1) 
+        - center of original image is (320, 240)
+        - new image dimensions should be 300 * 300 
+        - interpolation default is nearest-neighbor
+        - x_offset = 640/2 - 300/2 = 320 - 150 = 170
+        - y_offset = 480/2 - 300/2 = 240 - 150 = 90
+    -->
+
+    <!-- launch crop_decimate nodelet -->
+    <node pkg="nodelet" type="nodelet" args="standalone image_proc/crop_decimate" name="depth_cropper">
+        <param name="decimation_x" type="int" value="1"/>
+        <param name="decimation_y" type="int" value="1"/>
+        <param name="x_offset" type="int" value="170" />
+        <param name="y_offset" type="int" value="90" />
+        <param name="width" type="int" value="300" />
+        <param name="height" type="int" value="300" />
+
+        <!-- remap input topics -->
+        <remap from="camera/image_raw" to="/camera/depth/image_raw"/>
+        <remap from="camera/image_info" to="/camera/depth/camera_info"/>
+
+        <!-- remap output topics -->
+        <remap from="camera_out/image_raw" to="/camera_crop/depth/image_raw"/>
+        <remap from="camera_out/image_info" to="/camera_crop/depth/camera_info"/>
+    </node>
+
+</launch>

@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- AUTHOR: Alexander Koenig  -->
+
+    <!-- view tag detection image and frames in rviz -->
+    <arg name="visualisation" default="true"/>
+
+    <!-- load openni2 launch file, prevent that default tf tree is published -->
+    <include file="$(find openni2_launch)/launch/openni2.launch">
+        <arg name="publish_tf" default="false" />
+    </include>
+
+    <!-- launch apriltag ros node with my cameras parameters -->
+    <arg name="node_namespace" default="apriltag_ros_continuous_node" />
+    <arg name="camera_name" default="camera/rgb" />
+    <arg name="camera_frame" default="camera/rgb_frame" />
+    <arg name="image_topic" default="image_rect_color" />
+
+    <!-- set parameters -->
+    <rosparam command="load" file="$(find vision)/tags/config/settings.yaml" ns="$(arg node_namespace)" />
+    <rosparam command="load" file="$(find vision)/tags/config/tags.yaml" ns="$(arg node_namespace)" />
+
+    <node pkg="apriltag_ros" type="apriltag_ros_continuous_node" name="$(arg node_namespace)" clear_params="true" output="screen">
+        <!-- remap topics from those used in code to those on the ROS network -->
+        <remap from="image_rect" to="$(arg camera_name)/$(arg image_topic)" />
+        <remap from="camera_info" to="$(arg camera_name)/camera_info" />
+
+        <param name="camera_frame" type="str" value="$(arg camera_frame)" />
+        <param name="publish_tag_detections_image" type="bool" value="$(arg visualisation)" />
+    </node>
+
+    <!-- STATIC TRANSFORMATION: TAG to SEEN FLANGE (values taken from cad of connector) 
+        translation (XYZ):  [0, -0.0711, -(0.01 + 0.0335)]
+        rotation (ZYX):     [pi, 0, pi/2] -->
+    <node pkg="tf" type="static_transform_publisher" name="tag_to_flange_seen_broadcaster"
+        args="0 -0.0711 -0.0435 3.1415 0 1.5708 tag_frame kuka/flange_frame/seen 100"/>
+
+    <!-- STATIC TRANSFORMATION: RGB to DEPTH (values measured from camera) 
+        translation (XYZ):  [-0.027, 0, 0]
+        rotation (ZYX):     [0, 0, 0] -->
+    <node pkg="tf" type="static_transform_publisher" name="rgb_to_depth_broadcaster"
+        args="-0.027 0 0 0 0 0 camera/rgb_frame camera/depth_frame 100"/>
+
+    <!-- STATIC TRANSFORMATION: FLANGE SEEN (BY CAMERA) TO FLANGE MEASURED (BY KUKA)
+        translation (XYZ):  [0, 0, 0]
+        rotation (ZYX):     [0, 0, 0] -->
+    <node pkg="tf" type="static_transform_publisher" name="flange_seen_to_flange_measured_broadcaster"
+        args="0 0 0 0 0 0 kuka/flange_frame/seen kuka/flange_frame/measured 100"/>
+
+    <group if="$(arg visualisation)">
+        <node pkg="rviz" type="rviz" name="rviz" args="-d $(find vision)/rviz/view_frames.rviz"/>
+    </group>
+
+    <!-- launch node to publish desired transform BASE to FLANGE -->
+    <!-- ... -->
+</launch>

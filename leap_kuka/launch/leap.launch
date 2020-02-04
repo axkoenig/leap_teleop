@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- DESCRIPTION: launch file to start Leap Motion ROS driver only. -->
+
+    <!-- only launch leap motion ros driver -->
+    <rosparam file="$(find leap_motion)/config/listener_params.yaml" command="load" />
+    <node pkg="leap_motion" type="leap_motion_driver_node" name="leap_driver" output="screen" />
+
+</launch>

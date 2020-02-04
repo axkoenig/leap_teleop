@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- DESCRIPTION: launch file to upload KUKA parameters to ROS parameter server. -->
+
+    <!-- load parameters to parameter server -->
+    <group ns="kuka">
+        <rosparam file="$(find kuka_control)/config/kuka_params_ptp.yaml"/>
+    </group>
+    
+</launch>

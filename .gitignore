@@ -1,0 +1,4 @@
+*.pyc
+modules/reflex-ros-pkg/reflex_driver/yaml/finger_calibrate.yaml
+modules/reflex-ros-pkg/reflex_driver/yaml/tactile_calibrate.yaml
+kuka/kuka_msgs/matlab_gen

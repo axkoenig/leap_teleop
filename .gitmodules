@@ -1,0 +1,32 @@
+[submodule "modules/apriltag"]
+	path = modules/apriltag
+	url = https://github.com/AprilRobotics/apriltag.git
+[submodule "modules/apriltag_ros"]
+	path = modules/apriltag_ros
+	url = https://github.com/AprilRobotics/apriltag_ros.git
+[submodule "modules/reflex-ros-pkg"]
+	path = modules/reflex-ros-pkg
+	url = https://github.com/RightHandRobotics/reflex-ros-pkg.git
+[submodule "modules/KST-Kuka-Sunrise-Toolbox"]
+	path = modules/KST-Kuka-Sunrise-Toolbox
+	url = https://github.com/Modi1987/KST-Kuka-Sunrise-Toolbox.git
+[submodule "modules/oculus_ros"]
+	path = modules/oculus_ros
+	url = https://github.com/stevespiss/oculus_ros.git
+[submodule "modules/openni2_camera"]
+	path = modules/openni2_camera
+	url = https://github.com/ros-drivers/openni2_camera.git
+[submodule "modules/rgbd_launch"]
+	path = modules/rgbd_launch
+	url = https://github.com/ros-drivers/rgbd_launch.git
+[submodule "modules/image_pipeline"]
+	path = modules/image_pipeline
+	url = https://github.com/ros-perception/image_pipeline.git
+	branch = kinetic
+[submodule "modules/leap_motion"]
+	path = modules/leap_motion
+	url = https://github.com/ros-drivers/leap_motion.git
+[submodule "modules/ggcnn"]
+	path = modules/ggcnn
+	url = https://github.com/dougsm/ggcnn.git
+	branch = RSS2018

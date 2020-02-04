@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- ATTENTION: MAKE SURE KUKA CONTROL MODE IS NOT RUNNING, OTHERWISE ROBOT WILL MOVE! -->
+
+    <!-- DESCRIPTION: launch file to start ROS node for Leap Motion control of KUKA. This script is only 
+    for debugging as we are overwriting the center_line argument in the kuka_params.yaml file and are manually
+    setting a workspace center (which is normally calculated from workspace defintion) -->
+
+    <!-- view frames in rviz -->
+    <arg name="visualisation" default="true"/>
+
+    <!-- load parameters to parameter server -->
+    <group ns="kuka">
+        <rosparam file="$(find kuka_control)/config/kuka_params_rt.yaml"/>
+        <rosparam param="center_line">[1.0, 0.0, 0.0]</rosparam>
+        <rosparam param="ws_center">[0.5, 0.0, 0.5]</rosparam>
+    </group>
+    <group ns="leap">
+        <rosparam file="$(find leap_kuka)/config/leap_params.yaml"/>
+    </group>
+
+    <!-- launch leap motion ros driver -->
+    <rosparam file="$(find leap_motion)/config/listener_params.yaml" command="load" />
+    <node pkg="leap_motion" type="leap_motion_driver_node" name="leap_driver" output="screen" />
+
+	<!-- launch leap kuka node -->
+    <node name="leap_kuka_node" pkg="leap_kuka" type="leap_kuka.py" output="screen"/>
+
+	<group if="$(arg visualisation)">
+        <node pkg="rviz" type="rviz" name="rviz" args="-d $(find leap_kuka)/rviz/view_frames.rviz"/>
+    </group>
+    
+</launch>

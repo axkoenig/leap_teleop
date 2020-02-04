@@ -1,0 +1,33 @@
+# NAME                DESCRIPTION               DEFAULT               UNIT    NOTE
+# ---------------------------------------------------------------------------------------------------------------------------------------------------
+# robot               robot type                LBR7R800              -       LBR7R800 or LBR14R820
+# flange              flange type               MF_elektrisch         -       MF_elektrisch, MF_pneumatisch, MF_IO_pneumatisch, MF_touch_pneumatisch
+# ip                  robot ip address          172.31.1.147          -       - 
+# center_line         direction vector          [1, -1, 0]            -       z must be zero
+# opening_angle       opening angle             50.0                  [deg]   in range (0, 180)
+# z_lower_limit       lowest tool z             0.2                   [m]     in range (0.1, z_upper_limit)
+# z_upper_limit       highest tool z            0.6                   [m]     in range (z_lower_limit, 1.14)
+# inner_sphere_limit  radius of sphere          0.5                   [m]     in range (0.4, outer_sphere_limit)
+# outer_sphere_limit  radius of sphere          0.7                   [m]     in range (inner_sphere_limit, 0.8)
+# tool_length         length of tool            0.106                 [m]     in range [0, inf), taken from cad (here: connector (0.026) + tool (0.08))
+# velocity_ptp_slow   relative eef velocity     0.15                  -       must be in range (0, 1)
+# velocity_ptp_fast   relative eef velocity     0.25                  -       must be in range (0, 1)
+# time_out            move home after time_out  0.2                   [s]     set high time_out (e.g. 999999) to keep last received robot position                                                           
+# home_pos            custom home_pos           [-45,20,0,-100,0,40,0][deg]   disregarded if use_home_pos equals false
+# use_home_pos        use custom home_pos       false                 -       -
+
+robot: LBR7R800
+flange: MF_elektrisch
+ip: 172.31.1.147
+center_line: [1, -1, 0]
+opening_angle: 50.0
+z_lower_limit: 0.2
+z_upper_limit: 0.6      
+inner_sphere_limit: 0.5   
+outer_sphere_limit: 0.7    
+tool_length: 0.106
+velocity_ptp_slow: 0.15 
+velocity_ptp_fast: 0.25
+time_out: 0.2
+home_pos: [-45, 20, 0, -100, 0, 40, 0]
+use_home_pos: false

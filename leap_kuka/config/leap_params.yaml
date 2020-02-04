@@ -1,0 +1,21 @@
+# NAME                DESCRIPTION                           DEFAULT           UNIT
+# ---------------------------------------------------------------------------------
+# z_clearance         clearance when at KUKA lower z limit  0.15              [m]
+# box_dimensions      interaction box for pick-up           [0.2, 0.2, 0.2]   [m]
+# buffer_size         FIFO averaging queue size             10                -
+# start_tol_pitch     pitch tolerance at pick-up            20                [deg]
+# start_tol_roll      roll tolerance at pick-up             20                [deg]
+# run_tol_yaw         yaw tolerance while running           25                [deg]
+# run_tol_pitch       pitch tolerance while running         25                [deg]
+# run_tol_roll        roll tolerance while running          25                [deg]
+# min_confidence      min confidence to still stream data   0.05              -
+
+z_clearance: 0.15 
+box_dimensions: [0.2, 0.2, 0.2]
+buffer_size: 10 
+start_tol_pitch: 20
+start_tol_roll: 20
+run_tol_yaw: 25
+run_tol_pitch: 25   
+run_tol_roll: 25
+min_confidence: 0.05

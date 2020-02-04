@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- DESCRIPTION: launch file to start ROS node for Leap Motion control of robotic hand. -->
+
+    <!-- load leap motion driver launch fie -->
+    <rosparam file="$(find leap_motion)/config/listener_params.yaml" command="load" />
+    <node pkg="leap_motion" type="leap_motion_driver_node" name="leap_driver" output="screen" />
+
+	<!-- load takktile hand driver launch file -->
+	<include file="$(find reflex)/launch/reflex_takktile.launch"/>
+
+	<!-- launch leap hand node -->
+    <node name="leap_hand_node" pkg="leap_hand" type="leap_hand.py" output="screen">
+		<!-- if param True, node runs without listening to boolean flag on ROS network. -->
+    	<param name="hand_only" type="bool" value="False"/>
+	</node>
+
+</launch>

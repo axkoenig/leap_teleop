@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Note: after launching this script activate the conda environment and run the ggcnn.py node -->
+    
+	<!-- load openni2 launch file -->
+	<include file="$(find openni2_launch)/launch/openni2.launch"/>
+
+    <!-- launch image view -->
+    <node name="rqt_image_view" pkg="rqt_image_view" type="rqt_image_view"/>
+
+</launch>
