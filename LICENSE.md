@@ -1,1 +1,1 @@
-some license
+Imperial College London use only
