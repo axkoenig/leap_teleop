@@ -14,7 +14,7 @@ This project presents a modular ROS platform for the teleoperation of the KUKA i
 | leap_hand   | code to interface between Leap Motion node and robotic hand node |
 | leap_kuka   | code to interface between Leap Motion node and KUKA node         |
 | leap_rig    | files to start Leap Motion control of KUKA and robotic hand      |
-| modules     | third party software                                             |
+| modules     | third party software (generated upon recursive clone)            |
 | vision      | all vision related code (camera and virtual reality)             |
 
 ## Hardware Components
