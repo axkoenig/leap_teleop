@@ -67,11 +67,10 @@ rosdep install --from-paths src --ignore-src -r -y
 cd ~/catkin_ws
 catkin build 
 ```
-6. Remember to source the setup.bash file or add it to your .bashrc
+6. Remember to source the setup.bash file and, if you like, add it to your .bashrc
 ```bash
-source /opt/ros/kinetic/setup.bash
-or
-echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
+source ~/catkin_ws/devel/setup.bash
+echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 ```
 7. Call ```rosgenmsg("~/catkin_ws/src/kuka/kuka_msgs")``` in Matlab command window and follow onscreen instructions. See further instructions [here](https://uk.mathworks.com/help/robotics/ug/create-custom-messages-from-ros-package.html). 
 
