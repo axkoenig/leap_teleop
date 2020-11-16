@@ -55,7 +55,7 @@ catkin_init_workspace
 ```
 3. Clone this repository with all its submodules in the src folder of your workspace
 ```bash
-git clone --recursive git@github.ic.ac.uk:KukaProject/alex_code.git
+git clone --recursive https://github.com/axkoenig/kuka_leap.git
 ```
 4. Install all dependencies. You might need to [setup rosdep first](http://wiki.ros.org/rosdep)
 ```bash
