@@ -129,13 +129,13 @@ def get_human_angles(hand):
         raise ValueError("Leap Motion does not detect all fingers.")
 
     # get info from leap ros message 
-    thumb_tip = hand.finger_list[0].bone_list[2].bone_end.position
-    index_tip = hand.finger_list[1].bone_list[2].bone_end.position
-    middle_tip = hand.finger_list[2].bone_list[2].bone_end.position
+    thumb_tip = hand.finger_list[0].bone_list[3].bone_end.position
+    index_tip = hand.finger_list[1].bone_list[3].bone_end.position
+    middle_tip = hand.finger_list[2].bone_list[3].bone_end.position
     palm_center = hand.palm_center
     palm_normal = hand.normal
-    index_middle = hand.finger_list[1].bone_list[1].center
-    middle_middle = hand.finger_list[2].bone_list[1].center
+    index_middle = hand.finger_list[1].bone_list[2].center
+    middle_middle = hand.finger_list[2].bone_list[2].center
     
     # vectors from palm center to each of the finger tips
     vec_thumb = [thumb_tip.x - palm_center.x, thumb_tip.y - palm_center.y, thumb_tip.z - palm_center.z]
