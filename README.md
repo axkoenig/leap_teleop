@@ -1,4 +1,4 @@
-# ROS platform for KUKA iiwa and ReFlex TakkTile control
+# Gesture-Based Teleoperation of a Robot Manipulator
 
 This project presents a modular ROS platform for the teleoperation of the KUKA iiwa (7 R800 or 14 R820) robot manipulator and an attached ReFlex TakkTile robotic hand. The system supports control of both devices using the Leap Motion gesture tracker in a virtual reality environment. The project also presents a first attempt at autonomous grasping prediction.
 
@@ -55,7 +55,7 @@ catkin_init_workspace
 ```
 3. Clone this repository with all its submodules in the src folder of your workspace
 ```bash
-git clone --recursive https://github.com/axkoenig/kuka_leap.git
+git clone --recursive https://github.com/axkoenig/leap_teleop.git
 ```
 4. Install all dependencies. You might need to [setup rosdep first](http://wiki.ros.org/rosdep)
 ```bash
