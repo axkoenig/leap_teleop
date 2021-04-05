@@ -28,6 +28,6 @@ outer_sphere_limit: 0.7
 tool_length: 0.106
 velocity_ptp_slow: 0.15 
 velocity_ptp_fast: 0.25
-time_out: 0.2
+time_out: 0.01
 home_pos: [-45, 20, 0, -100, 0, 40, 0]
 use_home_pos: false
