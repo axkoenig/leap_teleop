@@ -1,8 +1,8 @@
-# Gesture-Based Teleoperation of a Robot Manipulator
-
-This project presents a modular ROS platform for the teleoperation of the KUKA iiwa (7 R800 or 14 R820) robot manipulator and an attached ReFlex TakkTile robotic hand. The system supports control of both devices using the Leap Motion gesture tracker. We provide visual feedback from a remote site via a virtual reality headset. The project also presents a first attempt at autonomous grasping prediction. For a detailed description of the project, please view the [handbook](docs/handbook.pdf).
+# Gesture-Based Teleoperated Grasping
 
 ![Grasping Demo](docs/figures/demo.png)
+
+This project presents a modular ROS platform for the teleoperation of the KUKA iiwa (7 R800 or 14 R820) robot manipulator and an attached ReFlex TakkTile robotic hand. The system supports control of both devices using the Leap Motion gesture tracker. We provide visual feedback from a remote site via a virtual reality headset. The project also presents a first attempt at autonomous grasping prediction. For a detailed description of the project, please view the [handbook](docs/handbook.pdf).
 
 ## Folder Structure 
 
