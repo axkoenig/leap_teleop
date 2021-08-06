@@ -2,7 +2,21 @@
 
 ![Grasping Demo](docs/figures/demo.png)
 
-This project presents a modular ROS platform for the teleoperation of the KUKA iiwa (7 R800 or 14 R820) robot manipulator and an attached ReFlex TakkTile robotic hand. The system supports control of both devices using the Leap Motion gesture tracker. We provide visual feedback from a remote site via a virtual reality headset. The project also presents a first attempt at autonomous grasping prediction. For a detailed description of the project, please view the [handbook](docs/handbook.pdf).
+This is the offical code repository for the publication "Gesture-Based Teleoperated Grasping for Educational Robotics" in the IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN), 2021. We present an interactive robotic platform for teleoperated grasping as an educational tool. Our teleoperation method uses the Leap Motion optical gesture tracker to simultaneously control each of the four degrees-of-freedom (DOF) of the ReFlex TakkTile robotic hand and the six-DOF tool pose of the KUKA iiwa (7 R800 or 14 R820) serial manipulator. 
+
+For more details on the control algorithm please refer to the paper or the [handbook](docs/handbook.pdf). Watch a video of the system in action [here](https://www.youtube.com/watch?v=RDbpd9d7U2k). 
+
+## Citation
+
+```
+@INPROCEEDINGS{koenig2021,
+  author={Koenig, Alexander and Rodriguez y Baena, Ferdinando and Secoli, Riccardo},
+  booktitle={IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN), 2021}, 
+  title={Gesture-Based Teleoperated Grasping for Educational Robotics}, 
+  year={2021}
+}
+```
+
 
 ## Folder Structure 
 
@@ -18,6 +32,8 @@ This project presents a modular ROS platform for the teleoperation of the KUKA i
 | leap_rig    | files to start Leap Motion control of KUKA and robotic hand      |
 | modules     | third party software (generated upon recursive clone)            |
 | vision      | all vision related code (camera and virtual reality)             |
+
+The directories `vision` and `grasping` were not discussed in our paper, but they are extensions of the project that can be pursued in future work.
 
 ## Hardware Components
 
@@ -93,33 +109,6 @@ rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.0245 image:=
 rosrun camera_calibration cameracalibrator.py --size 8x6 --square 0.0245 image:=/camera/ir/image camera:=/camera/ir 
 ```
 * When printing the universal flange connector make sure to stop the 3D printer at the right layer to insert the nuts.
-
-## Authors
-
-**Alexander Koenig**
-* Maintainer of repository
-* Research Assistant at Imperial College London (April 2019 - September 2019)
-* [Mechatronics in Medicine Laboratory](https://www.imperial.ac.uk/mechatronics-in-medicine), Department of Mechanical Engineering
-* E-Mail: awckoenig@gmail.com
-* [LinkedIn](https://de.linkedin.com/in/alexander-koenig-95b9a0134)
-
-**Dr Riccardo Secoli**
-* Project supervisor
-* Research Associate at Imperial College London
-* [Mechatronics in Medicine Laboratory](https://www.imperial.ac.uk/mechatronics-in-medicine), Department of Mechanical Engineering
-* E-Mail: r.secoli@imperial.ac.uk
-
-**Dr Fabio Tatti**
-* Project supervisor
-* Research Associate at Imperial College London
-* [Mechatronics in Medicine Laboratory](https://www.imperial.ac.uk/mechatronics-in-medicine), Department of Mechanical Engineering
-* E-Mail: f.tatti@imperial.ac.uk
-
-**Prof Ferdinando Rodriguez y Baena**
-* Project supervisor
-* Professor of Medical Robotics at Imperial College London
-* [Mechatronics in Medicine Laboratory](https://www.imperial.ac.uk/mechatronics-in-medicine), Department of Mechanical Engineering
-* E-Mail: f.rodriguez@imperial.ac.uk
 
 ## Acknowledgments
 
