@@ -9,7 +9,7 @@ For more details on the control algorithm please refer to the paper or the [hand
 ## Citation
 
 ```
-@INPROCEEDINGS{koenig2021,
+@INPROCEEDINGS{koenig2021gesture,
   author={Koenig, Alexander and Rodriguez y Baena, Ferdinando and Secoli, Riccardo},
   booktitle={IEEE International Symposium on Robot and Human Interactive Communication (RO-MAN), 2021}, 
   title={Gesture-Based Teleoperated Grasping for Educational Robotics}, 
